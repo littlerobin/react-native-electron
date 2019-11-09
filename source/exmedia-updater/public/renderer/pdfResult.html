@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Result PDF</title>
+    <link rel="shortcut icon" href="%PUBLIC_URL%/icon_square.ico">
+    <style>
+      body {
+        padding: 2%;
+      }
+
+      .title {
+        text-decoration: underline;
+      }
+
+      .row {
+        display: flex;
+        padding-top: 2px;
+        padding-bottom: 2px;
+      }
+
+      .column {
+        flex: 1;
+      }
+
+      .logo-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .box {
+        margin-left: 20px;
+        margin-right: 20px;
+        padding: 10px;
+        padding-left: 24px;
+        padding-right: 24px;
+        border: 1px solid #000000;
+      }
+
+      .red { color: red }
+      .green { color: green }
+      .orange { color: orange }
+
+      .score {font-size: 16pt}
+      .number {padding-top: 4px; padding-bottom: 4px;}
+    </style>
+  </head>
+  <body>
+    <div class="row">
+      <div class="column">
+        <h3 class="title">Hasil Latihan</h3>
+        <div class="row">
+          <label class="column">Nama</label>
+          <label>:</label>&nbsp;
+          <label class="column">{{name}}</label>
+        </div>
+        <div class="row">
+          <label class="column">Mata Pelajaran</label>
+          <label>:</label>&nbsp;
+          <label class="column">{{matpel}}</label>
+        </div>
+        <div class="row">
+          <label class="column">Paket Tryout</label>
+          <label>:</label>&nbsp;
+          <label class="column">{{to}}</label>
+        </div>
+        <div class="row">
+          <label class="column">Jumlah Soal</label>
+          <label>:</label>&nbsp;
+          <label class="column">{{totalQuestion}}</label>
+        </div>
+        <div class="row">
+          <label class="column">Tanggal</label>
+          <label>:</label>&nbsp;
+          <label class="column">{{date}}</label>
+        </div>
+        <div class="row">
+          <label class="column">Lama Waktu</label>
+          <label>:</label>&nbsp;
+          <label class="column">{{duration}}</label>
+        </div>
+      </div>
+      <div class="column">
+        <div class="logo-container">
+          <h3>Nilai</h3>
+          <div class="box">
+            <label class="score">{{result}}</label>
+          </div>
+          <img src="./img-logo-ex01.png" width="70px" />
+        </div>
+        <div class="row">
+          <label class="column">Jawaban Benar</label>
+          <label>:</label>&nbsp;
+          <label class="column">{{correctAns}}</label>
+        </div>
+        <div class="row">
+          <label class="column">Jawaban Salah</label>
+          <label>:</label>&nbsp;
+          <label class="column">{{wrongAns}}</label>
+        </div>
+        <div class="row">
+          <label class="column">Jawaban Ragu-ragu</label>
+          <label>:</label>&nbsp;
+          <label class="column">{{doubtAns}}</label>
+        </div>
+        <div class="row">
+          <label class="column">Tidak dijawab</label>
+          <label>:</label>&nbsp;
+          <label class="column">{{unAnswer}}</label>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h3 class="title">Hasil Jawaban</h3>
+      <div class="row">
+        {{#mapAnswers}}
+        <div class="column">
+          {{#.}}
+            {{#correct}}
+              {{#isDoubt}}
+                <div class="number orange">{{no}}. {{answer}}</div>
+              {{/isDoubt}}
+              {{^isDoubt}}
+                <div class="number green">{{no}}. {{answer}}</div>
+              {{/isDoubt}}
+            {{/correct}}
+            {{^correct}}
+              {{#isDoubt}}
+                <div class="number orange">{{no}}. {{answer}}</div>
+              {{/isDoubt}}
+              {{^isDoubt}}
+                <div class="number red">{{no}}. {{answer}}</div>
+              {{/isDoubt}}
+            {{/correct}}
+          {{/.}}
+        </div>
+        {{/mapAnswers}}
+      </div>
+    </div>
+  </body>
+</html>

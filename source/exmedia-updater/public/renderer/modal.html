@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <title></title>
+    <style>
+      body {
+        padding: 3px;
+      }
+
+      #modal-title {
+        border-bottom: 1px solid;
+      }
+
+      .input {
+        margin-top: 8px;
+        margin-bottom: 8px;
+        width: 100%;
+        padding: 8px;
+        font-size: 16px;
+        outline-color: #7b7b7b;
+      }
+
+      #footer-modal {
+        display: flex;
+        justify-content: center;
+      }
+
+      .button-modal {
+        padding: 8px 15px;
+        color: #FFF;
+        background-color: #F20;
+        border-radius: 8px;
+        font-size: 14px;
+        outline: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="body-modal">
+      <h1 id="modal-title">Modal Title</h1>
+      <div id="modal-content">Modal Content</div>
+      <div id="footer-modal">
+        <button id="modal-close-button" class="button-modal">Tutup</button>
+      </div>
+    </div>
+  </body>
+  <script>
+    const { ipcRenderer, remote } = require('electron');
+
+    ipcRenderer.on('initial', (event, args) => {
+      const initialFn = args;
+      // console.log('initialFn', initialFn);
+      setTimeout(initialFn, 10);
+    });
+
+    document.getElementById('modal-close-button').onclick = function() {
+      const window = remote.getCurrentWindow();
+      window.close();
+    };
+  </script>
+</html>

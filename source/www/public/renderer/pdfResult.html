@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Result PDF</title>
+    <link rel="shortcut icon" href="%PUBLIC_URL%/icon_square.ico">
+    <style>
+      body {
+        padding: 2%;
+      }
+
+      .title {
+        text-decoration: underline;
+      }
+
+      .container: {
+        padding-top: 8px;
+        padding-bottom: 8px;
+      }
+
+      .row {
+        display: flex;
+        padding-top: 2px;
+        padding-bottom: 2px;
+      }
+
+      .column {
+        flex: 1;
+      }
+
+      .logo-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .box {
+        margin-left: 20px;
+        margin-right: 20px;
+        padding: 10px;
+        padding-left: 24px;
+        padding-right: 24px;
+        border: 1px solid #000000;
+      }
+
+      .red { color: red }
+      .green { color: green }
+      .orange { color: orange }
+
+      .score {font-size: 16pt}
+      .number {padding-top: 4px; padding-bottom: 4px;}
+
+      table {
+        border: 1px solid#118363;
+        border-collapse: collapse;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <label>Nama: </label>
+        &nbsp;
+        <label class="column">{{name}}</label>
+      </div>
+      <div class="row">
+        <label>Mata Pelajaran:</label>
+        &nbsp;
+        <label class="column">{{course}}</label>
+      </div>
+      <div class="row">
+        <label>Jumlah Soal: </label>
+        &nbsp;
+        <label class="column">{{totalQuestion}}</label>
+      </div>
+      <div class="row">
+        <label>Durasi pengerjaan: </label>
+        &nbsp;
+        <label class="column">{{duration}}</label>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <table border="1" cellpadding="8px" cellspacing="8px">
+          {{#userAnswerMap}}
+            <tr>
+            {{#.}}
+              {{#correct}}
+                {{#isDoubt}}
+                  <td><div class="number orange">{{no}}. {{answer}}</div></td>
+                {{/isDoubt}}
+                {{^isDoubt}}
+                  <td><div class="number green">{{no}}. {{answer}}</div></td>
+                {{/isDoubt}}
+              {{/correct}}
+              {{^correct}}
+                {{#isDoubt}}
+                  <td><div class="number orange">{{no}}. {{answer}}</div></td>
+                {{/isDoubt}}
+                {{^isDoubt}}
+                  <td><div class="number red">{{no}}. {{answer}}</div></td>
+                {{/isDoubt}}
+              {{/correct}}
+            {{/.}}
+            </tr>
+          {{/userAnswerMap}}
+        </table>
+      </div>
+
+      <div class="container">
+        <div class="row">
+          <div class="column">
+            <div class="row">
+              <label>Jawaban Benar: </label>
+              &nbsp;
+              <label class="column">{{totalCorrect}}</label>
+            </div>
+            <div class="row">
+              <label>Jawaban Salah: </label>
+              &nbsp;
+              <label class="column">{{totalIncorrect}}</label>
+            </div>
+            <div class="row">
+              <label>Jawaban Ragu-ragu: </label>
+              &nbsp;
+              <label class="column">{{totalDoubt}}</label>
+            </div>
+            <div class="row">
+              <label>Tidak dijawab: </label>
+              &nbsp;
+              <label class="column">{{totalUnanswer}}</label>
+            </div>
+          </div>
+          <div class="column">
+            <div class="logo-container">
+              <div class="row">
+                <label class="column">NILAI: </label>
+                <div class="box column">
+                  <label class="score">{{score}}</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

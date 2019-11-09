@@ -1,0 +1,11 @@
+{
+  "name": "equivalent",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://gitlab.com/ferry_hinardi/equivalent.git",
+  "author": "Jacky Wijaya <jekiwijaya@hotmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "lerna": "^2.9.0"
+  }
+}

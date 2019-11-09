@@ -1,0 +1,22 @@
+{
+  "name": "equivalen-ws-reconnect",
+  "version": "0.0.1",
+  "description": "websocket client that reconnect",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ws",
+    "websocket",
+    "reconnect",
+    "ws client"
+  ],
+  "dependencies": {
+    "babel-plugin-transform-decorators-legacy": "^1.3.5",
+    "ws": "*"
+  },
+  "repository": "https://github.com/ofirattia/ws-reconnect",
+  "author": "ofirattia@gmail.com",
+  "license": "ISC"
+}

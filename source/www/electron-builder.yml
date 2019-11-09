@@ -1,0 +1,57 @@
+appId: com.gps.equivalent
+productName: ExMedia
+asar: true
+artifactName: "${productName}-${version}-${arch}.${ext}"
+compression: maximum
+files:
+  - "./build/**/*"
+  - "./build/electron.js"
+  - "./assets/**/*"
+dmg:
+  contents:
+    - x: 281
+      y: 249
+      type: file
+    - x: 532
+      y: 249
+      type: link
+      path: /Applications
+nsis:
+  perMachine: true
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  installerLanguages: id_ID
+mac:
+  category: public.app-category.productivity
+  target:
+    - zip
+    - dmg
+  icon: public/icon_square.png
+  publish:
+    - provider: github
+      repo: equivalen
+      owner: fhinardi
+win:
+  target:
+    - "nsis:ia32"
+    - "nsis:x64"
+  icon: public/icon_square.png
+  certificateFile: private/ptgps.pfx
+  verifyUpdateCodeSignature: false
+  publisherName: PT Global Prima Solusindo
+  publish:
+    - provider: github
+      repo: equivalen
+      owner: fhinardi
+linux:
+  target:
+    - "AppImage"
+    - deb
+  icon: public/icon_square.png
+  maintainer: "Ferry Hinardi <ferry.hinardi@pt-gps.com>"
+  publish:
+    - provider: github
+      repo: equivalen
+      owner: fhinardi
+directories:
+  buildResources: public

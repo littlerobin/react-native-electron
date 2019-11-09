@@ -1,0 +1,62 @@
+{
+  "name": "landing",
+  "version": "0.1.0",
+  "private": true,
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "devDependencies": {
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "expect": "^22.4.3",
+    "flow-bin": "^0.72.0",
+    "flow-typed": "^2.4.0",
+    "jest-enzyme": "^6.0.0",
+    "jest-junit": "^4.0.0",
+    "jest-styled-components": "^5.0.1"
+  },
+  "dependencies": {
+    "change-bootstrap": "https://github.com/ChangeFinance/change-bootstrap",
+    "mixpanel-browser": "^2.22.0",
+    "node-sass-chokidar": "^1.3.0",
+    "npm-run-all": "^4.1.3",
+    "raven-js": "^3.25.2",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-global-configuration": "^1.2.1",
+    "react-google-tag-manager": "^2.2.1",
+    "react-intercom": "^1.0.14",
+    "react-modal": "^3.4.4",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.1.4",
+    "react-scroll-to-component": "^1.0.2",
+    "react-transition-group": "^2.3.1",
+    "react-waypoint": "^8.0.1",
+    "styled-components": "^3.2.6",
+    "styled-components-breakpoint": "^2.0.2",
+    "tween": "^0.9.0"
+  },
+  "scripts": {
+    "build-css": "node-sass-chokidar src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
+    "start-js": "react-scripts start",
+    "start": "npm-run-all -p watch-css start-js",
+    "build": "npm run build-css && react-scripts build",
+    "test": "npm run build-css && flow && react-scripts test --env=jsdom",
+    "test:ci": "npm run build-css && flow && react-scripts test --env=jsdom --testResultsProcessor ./node_modules/jest-junit",
+    "flow": "flow",
+    "eject": "react-scripts eject"
+  },
+  "proxy": "http://localhost:5000/",
+  "jest-junit": {
+    "output": "reports/junit/js-test-results.xml"
+  },
+  "jest": {
+    "coverageReporters": [
+      "json"
+    ]
+  }
+}

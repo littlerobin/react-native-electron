@@ -1,0 +1,28 @@
+{
+  "name": "equivalen-redux-persist-electron-storage",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel libs -d dist"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-flow": "^6.23.0"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "electron": "^2.0.9",
+    "graceful-fs": "^4.1.11",
+    "imurmurhash": "^0.1.4",
+    "is-obj": "^1.0.1",
+    "pify": "^4.0.0",
+    "signal-exit": "^3.0.2"
+  }
+}

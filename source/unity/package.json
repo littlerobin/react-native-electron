@@ -1,0 +1,19 @@
+{
+  "name": "unity",
+  "version": "0.0.1",
+  "description": "",
+  "main": "gulpFile.js",
+  "scripts": {
+    "start": "node_modules/.bin/gulp",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "equivalen-electron-connect": "^0.0.1",
+    "electron": "^2.0.4",
+    "gulp": "^3.9.1",
+    "mime-types": "^2.1.20",
+    "moment": "^2.22.2"
+  }
+}

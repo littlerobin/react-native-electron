@@ -1,0 +1,30 @@
+{
+  "name": "landing",
+  "version": "0.0.1",
+  "private": true,
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "devDependencies": {
+    "concurrently": "^3.6.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "nodemailer": "^4.6.8",
+    "react-slick": "^0.23.1",
+    "slick-carousel": "^1.8.1"
+  },
+  "engines": { "yarn": "1.9.4" },
+  "scripts": {
+    "client": "ls && cd client && ls && yarn start",
+    "server": "nodemon server.js",
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
+    "dev:server": "cd client && yarn build && cd .. && yarn start",
+    "local:prod": "NODE_ENV=production yarn dev:server",
+    "start": "node server.js",
+    "heroku-postbuild": "cd client && yarn && yarn install --only=dev --no-shrinkwrap && yarn build"
+  }
+}
