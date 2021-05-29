@@ -30,7 +30,7 @@
     "filereader": "^0.10.3",
     "lodash": "^4.17.4",
     "tree-kill": "^1.2.0",
-    "ws": "^6.1.0"
+    "ws": "^7.4.6"
   },
   "devDependencies": {
     "electron": "^1.6.11",
