@@ -16,7 +16,7 @@
     "copy-webpack-plugin": "^4.5.3",
     "crypto": "^1.0.1",
     "devtron": "^1.4.0",
-    "electron": "2.0.16",
+    "electron": "11.5.0",
     "electron-builder": "20.26.0",
     "electron-reload": "^1.2.5",
     "eslint": "4.14.0",
